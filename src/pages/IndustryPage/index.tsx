@@ -1,17 +1,17 @@
 import { lazy, Suspense } from 'react'
 import LoadingScreen from '../LoadingPage'
 
-const HomePage = lazy(
-  () => import('./HomePage'),
+const IndustryPage = lazy(
+  () => import('./IndustryPage'),
 )
 
-function HomePageRoot(): JSX.Element {
+function IndustryPageRoot(): JSX.Element {
   return (
     <Suspense fallback={<LoadingScreen />}>
-      <HomePage />
+      <IndustryPage />
     </Suspense>
   )
 }
 
-export default HomePageRoot
+export default IndustryPageRoot
 
