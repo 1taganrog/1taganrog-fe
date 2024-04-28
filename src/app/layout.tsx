@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from '../theme';
+import {ApolloProvider} from "@apollo/client";
+import createApolloClient from '../../apollo-client'
 
 export const metadata: Metadata = {
   title: "Красоты Таганрога",
@@ -17,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AppRouterCacheProvider>
-        <ThemeProvider theme={theme}>
-          <body>{children}</body>
-        </ThemeProvider>
+        <ApolloProvider client={createApolloClient()}>
+          <ThemeProvider theme={theme}>
+            <body>{children}</body>
+          </ThemeProvider>
+        </ApolloProvider>
       </AppRouterCacheProvider>
     </html>
   );
